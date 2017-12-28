@@ -2,6 +2,7 @@ package com.example.android.courtcounter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,40 +30,40 @@ public class MainActivity extends AppCompatActivity {
 
 
     /*Add 3 point team A*/
-    public void pointTreeA() {
+    public void pointTreeA(View view) {
 
         scoreA = scoreA + 3;
         refreshDisplayScore();
     }
 
     /*Add 2 point team A*/
-    public void pointTwoA() {
+    public void pointTwoA(View view) {
 
         scoreA = scoreA + 2;
         refreshDisplayScore();
     }
 
-    public void pointFreeA() {
+    public void pointFreeA(View view) {
 
         scoreA = scoreA + 1;
         refreshDisplayScore();
     }
 
     /*Add 3 point team B*/
-    public void pointTreeB() {
+    public void pointTreeB(View view) {
 
         scoreB = scoreB + 3;
         refreshDisplayScore();
     }
 
     /*Add 2 point team B*/
-    public void pointTwoB() {
+    public void pointTwoB(View view) {
 
         scoreB = scoreB + 2;
         refreshDisplayScore();
     }
 
-    public void pointFreeB() {
+    public void pointFreeB(View view) {
 
         scoreB = scoreB + 1;
         refreshDisplayScore();
