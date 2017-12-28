@@ -2,7 +2,6 @@ package com.example.android.courtcounter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -11,64 +10,62 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        displayForTeamA(scoreA);
+        refreshDisplayScore();
     }
 
     /**
-     * Displays the given score for Team A.
+     * Refresh display of both teams.
      */
-    public void displayForTeamA(int score) {
-        TextView scoreView = findViewById(R.id.team_a_score);
-        scoreView.setText(String.valueOf(score));
+    public void refreshDisplayScore() {
+
+        TextView scoreViewA = findViewById(R.id.team_a_score);
+        scoreViewA.setText(String.valueOf(scoreA));
+        TextView scoreViewB = findViewById(R.id.team_b_score);
+        scoreViewB.setText(String.valueOf(scoreB));
     }
 
-    /**
-     * Displays the given score for Team B.
-     */
-    public void displayForTeamB(int score) {
-        TextView scoreView = findViewById(R.id.team_b_score);
-        scoreView.setText(String.valueOf(score));
-    }
 
-    /*Suma equipo A*/
-    public void pointTreeA(View view) {
+    /*Add 3 point team A*/
+    public void pointTreeA() {
 
         scoreA = scoreA + 3;
-        displayForTeamA(scoreA);
+        refreshDisplayScore();
     }
 
-    public void pointTwoA(View view) {
+    /*Add 2 point team A*/
+    public void pointTwoA() {
 
         scoreA = scoreA + 2;
-        displayForTeamA(scoreA);
+        refreshDisplayScore();
     }
 
-    public void pointFreeA(View view) {
+    public void pointFreeA() {
 
         scoreA = scoreA + 1;
-        displayForTeamA(scoreA);
+        refreshDisplayScore();
     }
 
-    /*suma equipo B*/
-    public void pointTreeB(View view) {
+    /*Add 3 point team B*/
+    public void pointTreeB() {
 
         scoreB = scoreB + 3;
-        displayForTeamB(scoreB);
+        refreshDisplayScore();
     }
 
-    public void pointTwoB(View view) {
+    /*Add 2 point team B*/
+    public void pointTwoB() {
 
         scoreB = scoreB + 2;
-        displayForTeamB(scoreB);
+        refreshDisplayScore();
     }
 
-    public void pointFreeB(View view) {
+    public void pointFreeB() {
 
         scoreB = scoreB + 1;
-        displayForTeamB(scoreB);
+        refreshDisplayScore();
     }
 
 
