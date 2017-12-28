@@ -13,11 +13,12 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/statics_dispay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="#000000"
-            android:text="Statics"
+            android:text="@string/stat_display"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="16dp" />

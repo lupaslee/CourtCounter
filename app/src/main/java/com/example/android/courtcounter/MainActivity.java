@@ -1,5 +1,6 @@
 package com.example.android.courtcounter;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     int scoreA = 0;
     int scoreB = 0;
+    int tripleA = 0;
+    int tripleB = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +18,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         refreshDisplayScore();
+        refreshStats();
+    }
+
+    public void refreshStats() {
+        Resources res = getResources();
+        String recurso = res.getString(R.string.stat_display);
+        String stringFormateada = String.format(recurso, tripleA, tripleB);
+
+        TextView text = findViewById(R.id.statics_dispay);
+        text.setText(stringFormateada);
     }
 
     /**
@@ -29,11 +42,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*Add 3 point team A*/
+    /*Add 3 point team A
+    * increase tripleA statics*/
     public void pointTreeA(View view) {
 
         scoreA = scoreA + 3;
+        tripleA = tripleA + 1;
         refreshDisplayScore();
+        refreshStats();
     }
 
     /*Add 2 point team A*/
@@ -53,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
     public void pointTreeB(View view) {
 
         scoreB = scoreB + 3;
+        tripleB = tripleB + 1;
         refreshDisplayScore();
+        refreshStats();
     }
 
     /*Add 2 point team B*/
