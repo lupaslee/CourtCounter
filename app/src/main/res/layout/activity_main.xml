@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="#000000"
-            android:text="@string/stat_display"
+            android:text="@string/stat_display_play"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />

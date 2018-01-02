@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Court Counter</string>
-    <string name="stat_display">Triples A - %1$s \r Triples B - %2$d </string>
+    <string name="stat_display_triples">Triples \ \ \  \     A - %1$s\ \  vs \ \  B - %2$d </string>
+    <string name="stat_display_2_point">2 Point \ \ \ \      A - %1$s \ \  vs \ \ B - %2$d </string>
+    <string name="stat_display_freethrow">Free Throw\ \ \    A - %1$s \ \  vs \ \ B - %2$d </string>
+    <string name="stat_display_play">Let\'s Play </string>
+
 </resources>
