@@ -7,14 +7,29 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    int scoreA = 0;
-    int scoreB = 0;
-    int statTripleA = 0;
-    int statTripleB = 0;
-    int statDobleA = 0;
-    int statDobleB = 0;
-    int statFreeThrowA = 0;
-    int statFreeThrowB = 0;
+
+
+    public static int scoreA;
+    public static int scoreB;
+    public static int statTripleA;
+    public static int statTripleB;
+    public static int statDobleA;
+    public static int statDobleB;
+    public static int statFreeThrowA;
+    public static int statFreeThrowB;
+    public static int statStatus;
+
+    static {
+        scoreA = 0;
+        scoreB = 0;
+        statTripleA = 0;
+        statTripleB = 0;
+        statDobleA = 0;
+        statDobleB = 0;
+        statFreeThrowB = 0;
+        statFreeThrowA = 0;
+        statStatus = 0;
+    }
 
 
     @Override
@@ -23,9 +38,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         refreshDisplayScore();
-        refreshStats(0);
+        refreshStats(statStatus);
     }
 
+
+    /**
+     * Refresh Stats View
+     * Change string statString to show statics of last point.
+     *
+     * @param point stat to be shown
+     *              1-> free trows
+     *              2-> Two points
+     *              3-> triples
+     *              0-> show "let's play" message
+     *              any other do nothing
+     */
     public void refreshStats(int point) {
 
 
@@ -50,13 +77,8 @@ public class MainActivity extends AppCompatActivity {
             String textStatics = String.format(statString);
             TextView text = findViewById(R.id.statics_dispay);
             text.setText(textStatics);
-
         }
-
     }
-
-
-
 
     /**
      * Refresh display of both teams.
@@ -69,61 +91,75 @@ public class MainActivity extends AppCompatActivity {
         scoreViewB.setText(String.valueOf(scoreB));
     }
 
-
     /*Add 3 point team A
-    * increase tripleA statics*/
+    * increase 3 point team A statics*/
     public void pointTreeA(View view) {
-
         scoreA = scoreA + 3;
+        statStatus = 3;
         statTripleA = statTripleA + 1;
         refreshDisplayScore();
-        refreshStats(3);
+        refreshStats(statStatus);
     }
 
-    /*Add 2 point team A*/
+    /*  Add 2 point team A*
+      *  increase  2 point team A*/
     public void pointTwoA(View view) {
 
         scoreA = scoreA + 2;
         statDobleA = statDobleA + 1;
+        statStatus = 2;
         refreshDisplayScore();
-        refreshStats(2);
+        refreshStats(statStatus);
     }
 
+    /*  Add 1 point team A*
+    *  increase  1 point team A
+    */
     public void pointFreeA(View view) {
 
         scoreA = scoreA + 1;
         statFreeThrowA = statFreeThrowA + 1;
+        statStatus = 1;
         refreshDisplayScore();
-        refreshStats(1);
+        refreshStats(statStatus);
     }
 
-    /*Add 3 point team B*/
+    /*  Add 3 point team B*
+     *  increase  3 point team B  */
     public void pointTreeB(View view) {
 
         scoreB = scoreB + 3;
         statTripleB = statTripleB + 1;
+        statStatus = 3;
         refreshDisplayScore();
-        refreshStats(3);
-
+        refreshStats(statStatus);
     }
 
-    /*Add 2 point team B*/
+    /*  Add 2 point team B*
+     *  increase  2 point team B  */
     public void pointTwoB(View view) {
 
         scoreB = scoreB + 2;
         statDobleB = statDobleB + 1;
+        statStatus = 2;
         refreshDisplayScore();
-        refreshStats(2);
+        refreshStats(statStatus);
     }
 
+    /*  Add 2 point team B*
+     *  increase  2 point team B  */
     public void pointFreeB(View view) {
 
         scoreB = scoreB + 1;
         statFreeThrowB = statFreeThrowB + 1;
+        statStatus = 1;
         refreshDisplayScore();
-        refreshStats(1);
+        refreshStats(statStatus);
     }
 
+    /*Reset all data - Set all to zero
+    * and refresh all displays
+    */
     public void resetAll(View view) {
 
         scoreA = 0;
@@ -134,10 +170,10 @@ public class MainActivity extends AppCompatActivity {
         statDobleB = 0;
         statFreeThrowA = 0;
         statFreeThrowB = 0;
+        statStatus = 0;
         refreshDisplayScore();
         refreshStats(0);
     }
-
 
 
 }
